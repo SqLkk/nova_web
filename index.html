@@ -1,45 +1,54 @@
 <!doctype html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="tr" class="dark scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpeg" href="./logo.jpg" />
+    <link rel="icon" type="image/jpeg" href="./nov4_logo.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NOV4 — Zero-Cloud Industrial BI & SCADA Reporting Platform</title>
-    <meta name="description" content="100% on-premises industrial BI, real-time OEE analytics and automated plant shift reporting for heavy manufacturing, automotive lines, and smart factories." />
-    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <title>Nov4 — Supernova Endüstriyel SCADA, Telemetri ve Fabrika Zekası</title>
+    <meta name="description" content="Nov4 Supernova: Fabrika otomasyonu, makine telemetrisi, SCADA, ağ topolojisi haritası, alarm yönetimi ve Excel benzeri dinamik şablon raporlama platformu." />
+    
+    <!-- Google Fonts: Space Grotesk & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
     <style>
       :root {
         color-scheme: dark;
+        --bg-primary: #14111B;
+        --bg-secondary: #1F1B26;
+        --accent-primary: #F5B301;
+        --accent-secondary: #FF7A1A;
       }
       body {
-        background-color: #080C14;
-        color: #F1F5F9;
+        background-color: #14111B;
+        color: #F4F1EA;
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+      h1, h2, h3, h4, .font-display {
+        font-family: 'Space Grotesk', 'Inter', sans-serif;
       }
       .font-mono {
         font-family: 'JetBrains Mono', monospace;
       }
-      /* Custom Industrial Scrollbar */
+      /* Custom Supernova Scrollbar */
       ::-webkit-scrollbar {
-        width: 6px;
-        height: 6px;
+        width: 7px;
+        height: 7px;
       }
       ::-webkit-scrollbar-track {
-        background: #0B0F17;
+        background: #14111B;
       }
       ::-webkit-scrollbar-thumb {
-        background: #1E293B;
-        border-radius: 3px;
+        background: #3A3440;
+        border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #00E5FF;
+        background: #F5B301;
       }
     </style>
   </head>
-  <body class="bg-[#080C14] text-slate-100 antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
+  <body class="bg-[#14111B] text-[#F4F1EA] antialiased selection:bg-[#F5B301]/30 selection:text-[#FCD34D]">
     <div id="root"></div>
     <script type="module" src="./src/main.tsx"></script>
   </body>

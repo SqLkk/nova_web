@@ -1,147 +1,168 @@
 import React, { useState } from 'react';
-import { ShieldCheck, Cpu, Terminal, ChevronRight, Menu, X, Activity, HardDrive } from 'lucide-react';
+import { Play, Menu, X, ExternalLink, Activity, Layers, Cpu, Mail } from 'lucide-react';
 
 interface NavbarProps {
-  onOpenDemo: () => void;
-  onNavigateToSandbox: () => void;
+  onNavigateToSimulator: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo, onNavigateToSandbox }) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+export const Navbar: React.FC<NavbarProps> = ({ onNavigateToSimulator }) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-800/80 bg-[#080C14]/90 backdrop-blur-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        {/* Brand & Badge */}
-        <div className="flex items-center gap-4">
+    <header className="sticky top-0 z-50 bg-[#14111B]/90 backdrop-blur-md border-b border-white/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-18">
+          
+          {/* Brand Logo & Name */}
           <a href="#" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 rounded-lg overflow-hidden border border-cyan-500/40 bg-slate-900 p-0.5 shadow-lg group-hover:border-cyan-400 transition-colors">
+            <div className="w-10 h-10 rounded-lg overflow-hidden border border-[#F5B301]/30 bg-[#1F1B26] p-0.5 flex items-center justify-center shadow-lg group-hover:border-[#F5B301] transition-all">
               <img 
-                src="./logo.jpg" 
-                alt="NOV4 Industrial Intelligence Logo" 
+                src="/nov4_logo.jpg" 
+                alt="Nov4 Supernova" 
                 className="w-full h-full object-cover rounded-md"
                 onError={(e) => {
-                  // Fallback geometric glyph if image not ready
+                  // Fallback if image not found
                   (e.target as HTMLElement).style.display = 'none';
                 }}
               />
-              <div className="absolute inset-0 bg-cyan-500/10 pointer-events-none group-hover:bg-cyan-500/0 transition-colors"></div>
             </div>
-            <div className="flex flex-col">
+            <div>
               <div className="flex items-center gap-2">
-                <span className="font-mono text-xl font-bold tracking-wider text-white group-hover:text-cyan-400 transition-colors">
-                  NOV<span className="text-cyan-400">4</span>
+                <span className="text-xl font-bold font-display tracking-tight text-white group-hover:text-[#F5B301] transition-colors">
+                  NOV4
                 </span>
-                <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
-                  v2.8-AIRGAP
+                <span className="text-xs px-2 py-0.5 rounded font-mono font-medium bg-[#F5B301]/10 text-[#F5B301] border border-[#F5B301]/30">
+                  SUPERNOVA
                 </span>
               </div>
-              <span className="text-[11px] text-slate-400 font-medium tracking-tight">
-                Local-First Industrial Intelligence
-              </span>
+              <p className="text-[10px] text-slate-400 font-mono tracking-wide uppercase">
+                Plant Telemetry & SCADA
+              </p>
             </div>
           </a>
 
-          {/* Plant Network Status Indicator */}
-          <div className="hidden xl:flex items-center gap-2 pl-4 border-l border-slate-800 text-[11px] font-mono text-slate-400">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            <span className="text-slate-300 font-medium">OT NETWORK:</span>
-            <span className="text-emerald-400">100% AIR-GAPPED</span>
+          {/* Desktop Nav Links */}
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+            <a 
+              href="#simulator" 
+              onClick={(e) => { e.preventDefault(); onNavigateToSimulator(); }}
+              className="flex items-center gap-1.5 hover:text-[#F5B301] transition-colors py-1"
+            >
+              <Activity className="w-4 h-4 text-[#F5B301]" />
+              <span>Canlı Simülatör</span>
+              <span className="flex h-2 w-2 relative ml-1">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+            </a>
+            
+            <a href="#capabilities" className="flex items-center gap-1.5 hover:text-white transition-colors">
+              <Layers className="w-4 h-4 text-slate-400" />
+              <span>Modüller & Yetenekler</span>
+            </a>
+
+            <a href="#architecture" className="flex items-center gap-1.5 hover:text-white transition-colors">
+              <Cpu className="w-4 h-4 text-slate-400" />
+              <span>Teknik Mimari</span>
+            </a>
+
+            <a href="#contact" className="flex items-center gap-1.5 hover:text-white transition-colors">
+              <Mail className="w-4 h-4 text-slate-400" />
+              <span>İletişim</span>
+            </a>
+          </nav>
+
+          {/* Action Button */}
+          <div className="hidden sm:flex items-center gap-3">
+            <a
+              href="/demo/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono font-medium text-slate-300 bg-[#1F1B26] border border-white/10 hover:border-white/20 hover:text-white transition-all"
+            >
+              <span>Tam Ekran Demo</span>
+              <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+            </a>
+
+            <button
+              onClick={onNavigateToSimulator}
+              className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold font-display text-[#14111B] bg-gradient-to-r from-[#F5B301] to-[#FF7A1A] hover:brightness-110 shadow-lg shadow-[#F5B301]/20 transition-all cursor-pointer"
+            >
+              <Play className="w-3.5 h-3.5 fill-current" />
+              <span>Simülatörü Başlat</span>
+            </button>
           </div>
-        </div>
 
-        {/* Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-7 text-xs uppercase tracking-wider font-semibold text-slate-300">
-          <a href="#modules" className="hover:text-cyan-400 transition-colors">Platform Modules</a>
-          <a href="#architecture" className="hover:text-cyan-400 transition-colors">Architecture & Security</a>
-          <button 
-            onClick={onNavigateToSandbox}
-            className="flex items-center gap-1.5 text-cyan-300 hover:text-cyan-200 transition-colors px-2.5 py-1 rounded bg-cyan-500/10 border border-cyan-500/30 animate-pulse"
-          >
-            <Activity className="w-3.5 h-3.5 text-cyan-400" />
-            <span>Interactive Simulator</span>
-            <span className="bg-cyan-500 text-black text-[9px] font-bold px-1 rounded uppercase">Try Now</span>
-          </button>
-          <a href="#roi-calculator" className="hover:text-cyan-400 transition-colors">ROI Calculator</a>
-          <a href="#licensing" className="hover:text-cyan-400 transition-colors">Licensing & PO</a>
-        </nav>
-
-        {/* CTA Buttons */}
-        <div className="hidden sm:flex items-center gap-3">
-          <button
-            onClick={onOpenDemo}
-            className="relative group overflow-hidden rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-4 py-2.5 text-xs font-mono font-bold tracking-wide text-slate-950 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] hover:brightness-110 active:scale-95"
-          >
-            <span className="relative z-10 flex items-center gap-2">
-              <span>Book Plant Demo</span>
-              <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
-            </span>
-          </button>
-        </div>
-
-        {/* Mobile menu toggle */}
-        <div className="flex lg:hidden">
-          <button 
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-slate-400 hover:text-white"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 rounded-lg bg-[#1F1B26] border border-white/10 text-slate-300 hover:text-white"
+            >
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Mobile Menu Dropdown */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden border-b border-slate-800 bg-[#080C14] px-4 pt-3 pb-6 space-y-3">
-          <div className="flex items-center gap-2 py-2 px-3 rounded bg-slate-900/80 border border-slate-800 text-xs font-mono text-slate-300">
-            <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <span>AIR-GAPPED OT ARCHITECTURE</span>
-          </div>
-          <a 
-            href="#modules" 
-            onClick={() => setMobileMenuOpen(false)}
-            className="block text-sm font-medium text-slate-300 hover:text-cyan-400 py-1.5"
+      {isMobileMenuOpen && (
+        <div className="md:hidden border-b border-white/10 bg-[#1F1B26] px-4 pt-3 pb-5 space-y-3">
+          <a
+            href="#simulator"
+            onClick={(e) => {
+              e.preventDefault();
+              setIsMobileMenuOpen(false);
+              onNavigateToSimulator();
+            }}
+            className="flex items-center justify-between py-2 text-sm font-medium text-[#F5B301]"
           >
-            Platform Modules
+            <span className="flex items-center gap-2">
+              <Activity className="w-4 h-4" />
+              Canlı Simülatör (Demo)
+            </span>
+            <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/30">
+              Aktif
+            </span>
           </a>
-          <a 
-            href="#architecture" 
-            onClick={() => setMobileMenuOpen(false)}
-            className="block text-sm font-medium text-slate-300 hover:text-cyan-400 py-1.5"
+
+          <a
+            href="#capabilities"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="flex items-center gap-2 py-2 text-sm font-medium text-slate-300 hover:text-white"
           >
-            Architecture & Security
+            <Layers className="w-4 h-4 text-slate-400" />
+            Modüller & Yetenekler
           </a>
-          <button 
-            onClick={() => { setMobileMenuOpen(false); onNavigateToSandbox(); }}
-            className="w-full text-left flex items-center justify-between text-sm font-medium text-cyan-400 py-1.5"
+
+          <a
+            href="#architecture"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="flex items-center gap-2 py-2 text-sm font-medium text-slate-300 hover:text-white"
           >
-            <span>Try NOV4 Live Sandbox</span>
-            <span className="text-[10px] bg-cyan-500/20 text-cyan-300 px-2 py-0.5 rounded">DEMO</span>
-          </button>
-          <a 
-            href="#roi-calculator" 
-            onClick={() => setMobileMenuOpen(false)}
-            className="block text-sm font-medium text-slate-300 hover:text-cyan-400 py-1.5"
-          >
-            ROI Calculator
+            <Cpu className="w-4 h-4 text-slate-400" />
+            Teknik Mimari
           </a>
-          <a 
-            href="#licensing" 
-            onClick={() => setMobileMenuOpen(false)}
-            className="block text-sm font-medium text-slate-300 hover:text-cyan-400 py-1.5"
+
+          <a
+            href="#contact"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="flex items-center gap-2 py-2 text-sm font-medium text-slate-300 hover:text-white"
           >
-            Licensing & Enterprise Terms
+            <Mail className="w-4 h-4 text-slate-400" />
+            İletişim
           </a>
-          <div className="pt-2">
-            <button
-              onClick={() => { setMobileMenuOpen(false); onOpenDemo(); }}
-              className="w-full py-2.5 rounded-lg bg-cyan-500 font-mono text-xs font-bold text-black text-center"
+
+          <div className="pt-2 flex flex-col gap-2">
+            <a
+              href="/demo/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 py-2 text-xs font-mono font-medium bg-[#2F2934] text-white rounded-lg border border-white/10"
             >
-              Request Technical Walkthrough
-            </button>
+              <span>Bağımsız Tam Ekran Demo</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
           </div>
         </div>
       )}

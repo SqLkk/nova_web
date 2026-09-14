@@ -1,43 +1,59 @@
 @import "tailwindcss";
 
 @layer utilities {
-  .bg-industrial-grid {
-    background-size: 32px 32px;
-    background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  .bg-supernova-base {
+    background-color: #14111B;
   }
   
-  .bg-radial-glow {
-    background: radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.12) 0%, rgba(11, 15, 23, 0) 70%);
+  .bg-supernova-card {
+    background-color: #1F1B26;
   }
 
-  .glow-cyan {
-    box-shadow: 0 0 25px -5px rgba(0, 229, 255, 0.3);
+  .bg-supernova-elevated {
+    background-color: #2F2934;
   }
 
-  .glow-emerald {
-    box-shadow: 0 0 20px -5px rgba(16, 185, 129, 0.4);
-  }
-
-  .glow-amber {
-    box-shadow: 0 0 20px -5px rgba(245, 158, 11, 0.4);
-  }
-
-  .border-tech {
+  .border-supernova {
     border-color: rgba(255, 255, 255, 0.08);
   }
 
-  .border-tech-highlight {
-    border-color: rgba(0, 229, 255, 0.35);
+  .border-supernova-gold {
+    border-color: rgba(245, 179, 1, 0.3);
+  }
+
+  .text-supernova-gold {
+    color: #F5B301;
+  }
+
+  .text-supernova-orange {
+    color: #FF7A1A;
+  }
+
+  .bg-supernova-grid {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(245, 179, 1, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(245, 179, 1, 0.03) 1px, transparent 1px);
+  }
+  
+  .bg-supernova-radial {
+    background: radial-gradient(circle at 50% 0%, rgba(245, 179, 1, 0.12) 0%, rgba(255, 122, 26, 0.04) 35%, rgba(20, 17, 27, 0) 70%);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 25px -5px rgba(245, 179, 1, 0.35);
+  }
+
+  .glow-orange {
+    box-shadow: 0 0 25px -5px rgba(255, 122, 26, 0.35);
   }
 }
 
-@keyframes scanline {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(1000%); }
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
 }
 
-.animate-scanline {
-  animation: scanline 8s linear infinite;
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
 }

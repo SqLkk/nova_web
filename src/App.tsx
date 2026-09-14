@@ -1,84 +1,45 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { TryNov4Sandbox } from './components/TryNov4Sandbox';
-import { ProblemSolution } from './components/ProblemSolution';
-import { PlatformModules } from './components/PlatformModules';
+import { LiveSimulator } from './components/LiveSimulator';
+import { ProductCapabilities } from './components/ProductCapabilities';
 import { ArchitectureSecurity } from './components/ArchitectureSecurity';
-import { RoiCalculator } from './components/RoiCalculator';
-import { LicensingTable } from './components/LicensingTable';
+import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { DemoModal } from './components/DemoModal';
-import { ShiftReportModal } from './components/ShiftReportModal';
 
 export const App: React.FC = () => {
-  const [isDemoModalOpen, setIsDemoModalOpen] = useState<boolean>(false);
-  const [isShiftReportModalOpen, setIsShiftReportModalOpen] = useState<boolean>(false);
-
-  const scrollToSandbox = () => {
-    const el = document.getElementById('try-nov4');
+  const scrollToSimulator = () => {
+    const el = document.getElementById('simulator');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <div className="min-h-screen bg-[#080C14] text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200">
-      {/* Top Navbar */}
-      <Navbar 
-        onOpenDemo={() => setIsDemoModalOpen(true)}
-        onNavigateToSandbox={scrollToSandbox}
-      />
+    <div className="min-h-screen bg-[#14111B] text-[#F4F1EA] selection:bg-[#F5B301]/30 selection:text-[#FCD34D]">
+      {/* Navigation Header */}
+      <Navbar onNavigateToSimulator={scrollToSimulator} />
 
-      {/* Main Content Flow */}
+      {/* Main Flow */}
       <main>
         {/* 1. Hero Section */}
-        <Hero 
-          onOpenDemo={() => setIsDemoModalOpen(true)}
-          onNavigateToSandbox={scrollToSandbox}
-          onPreviewShiftReport={() => setIsShiftReportModalOpen(true)}
-        />
+        <Hero onNavigateToSimulator={scrollToSimulator} />
 
-        {/* 2. Interactive "Try NOV4" Live Sandbox (Prominently featured directly after Hero) */}
-        <TryNov4Sandbox 
-          onPreviewShiftReport={() => setIsShiftReportModalOpen(true)}
-          onOpenDemo={() => setIsDemoModalOpen(true)}
-        />
+        {/* 2. Embedded Live Supernova Simulator */}
+        <LiveSimulator />
 
-        {/* 3. Problem vs Solution */}
-        <ProblemSolution />
+        {/* 3. Real Product Modules & Capabilities */}
+        <ProductCapabilities />
 
-        {/* 4. Core Platform Modules (Path Definer, OEE Studio, Report Studio) */}
-        <PlatformModules />
-
-        {/* 5. Security & Industrial Architecture (Air-Gap, OT protocols, Bare-Metal/VM) */}
+        {/* 4. Industrial Architecture & OT Security */}
         <ArchitectureSecurity />
 
-        {/* 6. Interactive ROI Calculator */}
-        <RoiCalculator 
-          onOpenDemo={() => setIsDemoModalOpen(true)}
-        />
-
-        {/* 7. Enterprise Licensing & Corporate PO Terms */}
-        <LicensingTable 
-          onOpenDemo={() => setIsDemoModalOpen(true)}
-        />
+        {/* 5. Clean Contact Section */}
+        <ContactSection />
       </main>
 
       {/* Footer */}
       <Footer />
-
-      {/* Lead Capture / Demo Booking Modal */}
-      <DemoModal 
-        isOpen={isDemoModalOpen}
-        onClose={() => setIsDemoModalOpen(false)}
-      />
-
-      {/* Shift Report Handover Preview Modal */}
-      <ShiftReportModal 
-        isOpen={isShiftReportModalOpen}
-        onClose={() => setIsShiftReportModalOpen(false)}
-      />
     </div>
   );
 };
