@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Mail, Check, Copy, ArrowUpRight } from 'lucide-react';
+import { X, Mail, Check, Copy, ArrowUpRight, MapPin } from 'lucide-react';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -59,13 +59,13 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
         </div>
 
         {/* Content */}
-        <div className="p-6 sm:p-8 text-center space-y-6">
+        <div className="p-6 sm:p-8 text-center space-y-5">
           <p className="text-sm sm:text-base text-slate-300 font-sans leading-relaxed">
             İletişim için lütfen buraya mail atın:
           </p>
 
-          {/* Email Box */}
-          <div className="p-4 rounded-xl bg-[#0D0B12] border border-[#F5B301]/40 shadow-inner flex flex-col sm:flex-row items-center justify-between gap-3 group">
+          {/* Direct Email Box */}
+          <div className="p-4 rounded-xl bg-[#0D0B12] border border-[#F5B301]/40 shadow-inner flex flex-col sm:flex-row items-center justify-between gap-3 group hover:border-[#F5B301]/70 transition-all">
             <a
               href={`mailto:${email}`}
               className="text-sm sm:text-base font-mono font-semibold text-[#F5B301] hover:text-[#FFC837] hover:underline transition-colors flex items-center gap-1.5 break-all"
@@ -76,7 +76,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
 
             <button
               onClick={handleCopy}
-              className="w-full sm:w-auto px-3 py-1.5 rounded-lg bg-[#1B1624] hover:bg-[#272132] text-slate-300 hover:text-white border border-white/10 text-xs font-mono flex items-center justify-center gap-1.5 transition-all cursor-pointer shrink-0"
+              className="w-full sm:w-auto px-3 py-1.5 rounded-lg bg-[#1B1624] hover:bg-[#272132] text-slate-300 hover:text-white border border-white/10 text-xs font-mono flex items-center justify-center gap-1.5 transition-all cursor-pointer shrink-0 active:scale-95"
               title="Adresi Kopyala"
             >
               {copied ? (
@@ -93,14 +93,11 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
             </button>
           </div>
 
-          {/* Direct mail action button */}
-          <a
-            href={`mailto:${email}`}
-            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold font-display text-[#14111B] bg-gradient-to-r from-[#F5B301] to-[#FF7A1A] hover:brightness-110 shadow-lg shadow-[#F5B301]/20 transition-all cursor-pointer"
-          >
-            <Mail className="w-4 h-4" />
-            <span>E-posta Gönder</span>
-          </a>
+          {/* Location: İzmir, Türkiye */}
+          <div className="pt-4 border-t border-white/5 flex items-center justify-center gap-2 text-xs text-slate-400 font-mono">
+            <MapPin className="w-3.5 h-3.5 text-[#F5B301] shrink-0" />
+            <span>İzmir, Türkiye</span>
+          </div>
         </div>
       </div>
     </div>
