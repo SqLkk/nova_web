@@ -41,7 +41,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigateToDemo, onScrollDown, scro
           Fabrikanızdaki tüm makinelerin verilerini tek ekranda toplayan, üretim hatlarınızı haritalandırarak kolay takip sağlayan ve verilerinizi Excel formülleriyle otomatik raporlayan yerel platform.
         </p>
 
-        {/* ORTADAKİ SİLİK "TOOL'U DENE" KARTI (Mobile touch friendly) */}
+        {/* ORTADAKİ SİLİK "DENEYELİM" KARTI (Mobile touch friendly) */}
         <div className="w-full max-w-md px-2 sm:px-0">
           <button
             onClick={onNavigateToDemo}
@@ -54,10 +54,10 @@ export const Hero: React.FC<HeroProps> = ({ onNavigateToDemo, onScrollDown, scro
                 </div>
                 <div>
                   <div className="text-[10px] sm:text-[11px] font-mono text-[#F5B301] uppercase tracking-wider font-semibold">
-                    Simülasyon Ortamı
+                    Canlı Simülasyon
                   </div>
                   <div className="text-sm sm:text-base font-bold font-display text-white group-hover:text-[#FCD34D] transition-colors">
-                    Tool'u Dene
+                    Nov4'ü Canlı Deneyelim
                   </div>
                 </div>
               </div>
@@ -76,7 +76,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigateToDemo, onScrollDown, scro
                 Mock Fabrika (21 Makine)
               </span>
               <span className="text-[#F5B301] font-semibold">
-                Aşağı Kaydırın ↓
+                Keşfedelim • Aşağı Kaydırın ↓
               </span>
             </div>
           </button>

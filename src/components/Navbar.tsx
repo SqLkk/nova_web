@@ -54,13 +54,14 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span className="sm:hidden text-[11px]">Detay</span>
             </button>
 
-            {/* 2. Tool'u Dene */}
+            {/* 2. Canlı Deneyimleyin */}
             <button
               onClick={onNavigateToDemo}
               className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-4 py-1.5 rounded-lg text-xs font-semibold font-display text-[#08060B] bg-gradient-to-r from-[#F5B301] to-[#FF7A1A] hover:brightness-110 shadow-md shadow-[#F5B301]/25 transition-all cursor-pointer active:scale-95 whitespace-nowrap"
             >
               <Play className="w-3 h-3 fill-current shrink-0" />
-              <span>Tool'u Dene</span>
+              <span className="hidden sm:inline">Canlı Deneyimleyin</span>
+              <span className="sm:hidden">Deneyelim</span>
             </button>
 
             {/* 3. İletişim */}

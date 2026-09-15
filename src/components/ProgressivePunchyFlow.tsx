@@ -177,7 +177,7 @@ export const ProgressivePunchyFlow: React.FC<ProgressivePunchyFlowProps> = ({ on
                 </div>
               </div>
 
-              {/* PROGRESSIVE "TOOL'U DENE" EVOLUTION */}
+              {/* PROGRESSIVE "DENEYELİM" EVOLUTION */}
               {/* Step 4: BLAZING FULL GLOW (4. kaydırmada tam parlayan kart) */}
               {isStep4 ? (
                 <div className="max-w-xl mx-auto animate-scaleUp px-2 sm:px-0">
@@ -189,7 +189,7 @@ export const ProgressivePunchyFlow: React.FC<ProgressivePunchyFlowProps> = ({ on
                           <span>Tüm Modüller Hazır • 4. Adım Tamamlandı</span>
                         </div>
                         <h3 className="text-lg sm:text-xl font-black font-display text-white">
-                          Nov4'ü Şimdi Canlı Dene
+                          Nov4'ü Şimdi Birlikte Deneyelim
                         </h3>
                         <p className="text-xs text-slate-300 mt-1 font-mono">
                           21 makine, montaj hatları ve şablon editörüyle hazır ortam.
@@ -201,7 +201,7 @@ export const ProgressivePunchyFlow: React.FC<ProgressivePunchyFlowProps> = ({ on
                         className="w-full sm:w-auto px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-black font-display text-[#08060B] bg-gradient-to-r from-[#F5B301] via-[#FFC107] to-[#FF7A1A] hover:brightness-110 shadow-xl shadow-[#F5B301]/40 transition-all transform hover:scale-105 active:scale-95 cursor-pointer whitespace-nowrap flex items-center justify-center gap-2"
                       >
                         <Play className="w-4 h-4 fill-current shrink-0" />
-                        <span>Simülatörü Başlat ↓</span>
+                        <span>Canlı Deneyimi Başlatın ↓</span>
                       </button>
                     </div>
                   </div>
@@ -219,7 +219,7 @@ export const ProgressivePunchyFlow: React.FC<ProgressivePunchyFlowProps> = ({ on
                     <div className="flex items-center justify-between text-[11px] sm:text-xs font-mono text-slate-400">
                       <span className="flex items-center gap-1.5 sm:gap-2">
                         <Terminal className="w-3.5 h-3.5 text-[#F5B301] shrink-0" />
-                        <span>Tool'u Dene (Hazırlanıyor...)</span>
+                        <span>Canlı Deneyim Hazırlanıyor...</span>
                       </span>
                       <span className="text-[#F5B301] font-bold">
                         {item.step} / 4 Kaydırma
