@@ -1,59 +1,77 @@
 @import "tailwindcss";
 
 @layer utilities {
-  .bg-supernova-base {
+  .bg-nova-void {
+    background-color: #0C0A10;
+  }
+
+  .bg-nova-surface {
     background-color: #14111B;
   }
   
-  .bg-supernova-card {
-    background-color: #1F1B26;
+  .bg-nova-card {
+    background-color: #1B1624;
   }
 
-  .bg-supernova-elevated {
-    background-color: #2F2934;
+  .bg-nova-elevated {
+    background-color: #272132;
   }
 
-  .border-supernova {
-    border-color: rgba(255, 255, 255, 0.08);
-  }
-
-  .border-supernova-gold {
-    border-color: rgba(245, 179, 1, 0.3);
-  }
-
-  .text-supernova-gold {
+  .text-nova-gold {
     color: #F5B301;
   }
 
-  .text-supernova-orange {
+  .text-nova-amber {
     color: #FF7A1A;
   }
 
-  .bg-supernova-grid {
-    background-size: 40px 40px;
+  .border-nova-subtle {
+    border-color: rgba(245, 179, 1, 0.15);
+  }
+
+  .border-nova-gold {
+    border-color: rgba(245, 179, 1, 0.4);
+  }
+
+  .glow-nova-lg {
+    text-shadow: 0 0 60px rgba(245, 179, 1, 0.4), 0 0 120px rgba(255, 122, 26, 0.2);
+  }
+
+  .glow-nova-box {
+    box-shadow: 0 0 50px -10px rgba(245, 179, 1, 0.25);
+  }
+
+  .glow-nova-ghost {
+    box-shadow: 0 0 40px -15px rgba(245, 179, 1, 0.15), inset 0 0 20px rgba(245, 179, 1, 0.05);
+  }
+
+  .bg-nova-grid {
+    background-size: 48px 48px;
     background-image: 
-      linear-gradient(to right, rgba(245, 179, 1, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(245, 179, 1, 0.03) 1px, transparent 1px);
+      linear-gradient(to right, rgba(245, 179, 1, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(245, 179, 1, 0.035) 1px, transparent 1px);
   }
   
-  .bg-supernova-radial {
-    background: radial-gradient(circle at 50% 0%, rgba(245, 179, 1, 0.12) 0%, rgba(255, 122, 26, 0.04) 35%, rgba(20, 17, 27, 0) 70%);
+  .bg-nova-radial {
+    background: radial-gradient(circle at 50% 20%, rgba(245, 179, 1, 0.14) 0%, rgba(255, 122, 26, 0.05) 30%, rgba(12, 10, 16, 0) 70%);
   }
 
-  .glow-gold {
-    box-shadow: 0 0 25px -5px rgba(245, 179, 1, 0.35);
-  }
-
-  .glow-orange {
-    box-shadow: 0 0 25px -5px rgba(255, 122, 26, 0.35);
+  .bg-nova-subtle-glow {
+    background: radial-gradient(circle at 50% 50%, rgba(245, 179, 1, 0.08) 0%, rgba(12, 10, 16, 0) 65%);
   }
 }
 
-@keyframes pulseGlow {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
 }
-
-.animate-pulse-glow {
-  animation: pulseGlow 3s ease-in-out infinite;
+::-webkit-scrollbar-track {
+  background: #0C0A10;
+}
+::-webkit-scrollbar-thumb {
+  background: #272132;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F5B301;
 }
