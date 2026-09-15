@@ -35,7 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 Nov4
               </span>
               <span className="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-[#F5B301]/10 text-[#F5B301] border border-[#F5B301]/30">
-                SCADA
+                PRO
               </span>
             </div>
           </a>

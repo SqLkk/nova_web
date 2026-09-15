@@ -47,7 +47,7 @@ export const App: React.FC = () => {
                On step 4 (4. kez kaydırınca) the Tool'u Dene card blazes in full golden glory! */}
         <ProgressivePunchyFlow onNavigateToDemo={scrollToDemo} />
 
-        {/* 3. Embedded Live Supernova SCADA Simulator (Ready with in-memory factory & demo logins) */}
+        {/* 3. Embedded Live Simulator (Ready with in-memory factory & demo logins) */}
         <LiveSimulator />
       </main>
 

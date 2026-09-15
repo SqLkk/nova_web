@@ -22,11 +22,11 @@ export const Footer: React.FC = () => {
               <div className="flex items-center gap-2">
                 <span className="text-lg font-bold font-display text-white">Nov4</span>
                 <span className="text-[10px] px-2 py-0.5 rounded font-mono bg-[#F5B301]/10 text-[#F5B301] border border-[#F5B301]/30">
-                  SCADA
+                  PRO
                 </span>
               </div>
               <p className="text-xs text-slate-500 font-mono">
-                Endüstriyel Telemetri & Veri Analiz Platformu
+                Endüstriyel Veri ve Otomatik Raporlama Platformu
               </p>
             </div>
           </div>
@@ -34,16 +34,16 @@ export const Footer: React.FC = () => {
           {/* Quick Links */}
           <div className="flex flex-wrap items-center gap-6 text-xs font-mono text-slate-300">
             <a href="#step-1" className="hover:text-[#F5B301] transition-colors">
-              Air-Gapped Güvenlik
+              İnternetsiz Güvenlik
             </a>
             <a href="#step-2" className="hover:text-[#F5B301] transition-colors">
-              Path Definer
+              Hat Haritalandırma
             </a>
             <a href="#step-3" className="hover:text-[#F5B301] transition-colors">
-              Query Studio
+              Duruş & Verimlilik
             </a>
             <a href="#step-4" className="hover:text-[#F5B301] transition-colors">
-              Excel Şablon Motoru
+              Otomatik Excel Raporlama
             </a>
             <a 
               href="/demo/" 
@@ -62,7 +62,7 @@ export const Footer: React.FC = () => {
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div className="flex items-center gap-2 font-mono">
             <Terminal className="w-3.5 h-3.5 text-[#F5B301]" />
-            <span>Nov4 Platform • On-Premises & Air-Gapped Ready</span>
+            <span>Nov4 Platform • %100 Yerel & Air-Gapped Çalışma</span>
           </div>
           <div>
             © {new Date().getFullYear()} Nov4. Tüm hakları saklıdır.

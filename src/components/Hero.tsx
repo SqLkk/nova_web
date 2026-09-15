@@ -7,7 +7,7 @@ interface HeroProps {
   scrollStep?: number;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onNavigateToDemo, onScrollDown, scrollStep = 0 }) => {
+export const Hero: React.FC<HeroProps> = ({ onNavigateToDemo, onScrollDown }) => {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-between pt-24 pb-12 px-4 sm:px-6 bg-[#08060B] bg-nova-wide-aura overflow-hidden selection:bg-[#F5B301]/30">
       
@@ -26,7 +26,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigateToDemo, onScrollDown, scro
         {/* Subtle Badge */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-medium bg-[#F5B301]/10 text-[#F5B301] border border-[#F5B301]/30 mb-6 backdrop-blur-md">
           <Cpu className="w-3.5 h-3.5" />
-          <span className="tracking-widest uppercase">Yerel Endüstriyel SCADA & Veri Platformu</span>
+          <span className="tracking-widest uppercase">Endüstriyel Veri & Otomatik Raporlama</span>
         </div>
 
         {/* GIANT "Nov4" TITLE */}
@@ -36,10 +36,9 @@ export const Hero: React.FC<HeroProps> = ({ onNavigateToDemo, onScrollDown, scro
           </h1>
         </div>
 
-        {/* Real Grounded Purpose Text */}
-        <p className="text-base sm:text-lg text-slate-300 font-normal max-w-2xl leading-relaxed mt-4 mb-10">
-          Endüstriyel veri kaynaklarını, varlık hiyerarşisini ve canlı telemetriyi tek çatı altında toplayan; 
-          <strong className="text-white font-medium"> Path Definer</strong>, <strong className="text-white font-medium">Query Studio</strong> ve <strong className="text-white font-medium">Excel şablon motoruna</strong> sahip yerel SCADA platformu.
+        {/* Plain Language Purpose: What it actually does */}
+        <p className="text-base sm:text-xl text-slate-300 font-normal max-w-2xl leading-relaxed mt-4 mb-10">
+          Fabrikanızdaki tüm makinelerin verilerini tek ekranda toplayan, üretim hatlarınızı haritalandırarak kolay takip sağlayan ve verilerinizi Excel formülleriyle otomatik raporlayan yerel platform.
         </p>
 
         {/* ORTADAKİ SİLİK "TOOL'U DENE" KARTI (Başlangıçta yarı saydam, 4 kez kaydırdıkça parlar) */}

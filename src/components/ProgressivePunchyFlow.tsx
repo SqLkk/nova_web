@@ -8,7 +8,6 @@ interface ProgressivePunchyFlowProps {
 export const ProgressivePunchyFlow: React.FC<ProgressivePunchyFlowProps> = ({ onNavigateToDemo }) => {
   const [activeStep, setActiveStep] = useState<number>(1);
 
-  // IntersectionObserver to detect which slide is currently viewed
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -35,60 +34,60 @@ export const ProgressivePunchyFlow: React.FC<ProgressivePunchyFlowProps> = ({ on
       step: 1,
       tag: '01 / GÜVENLİK & AIR-GAP',
       title: 'İnternet bağlantısı gerektirmez.',
-      subtitle: '%100 Air-Gapped ve yerel (on-premise) mimari. Tüm telemetri fabrika içi yerel disklerde (SQLite / PostgreSQL) saklanır; asla dış buluta sızmaz.',
+      subtitle: '%100 tesis içi çalışır. Fabrikanızın üretim verisi asla dışarıya veya genel buluta çıkmaz; tamamen kendi yerel sunucularınızda güvende kalır.',
       icon: ShieldCheck,
       color: 'text-emerald-400',
       badgeBg: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30',
       glow: 'from-emerald-500/10 via-transparent to-transparent',
       specs: [
         'Sıfır dış ağ ve bulut bağımlılığı',
-        'Tesis içi şifreli yerel veritabanı',
-        'Fiziksel izole üretim hatlarında kesintisiz çalışma'
+        'Fabrika içi şifreli yerel depolama',
+        'İzole üretim hatlarında kesintisiz çalışma'
       ]
     },
     {
       step: 2,
-      tag: '02 / PATH DEFINER',
-      title: 'Path Definer: Varlık ağacı ve hat akışı tek ekranda.',
-      subtitle: 'Tesis -> Üretim Hattı -> İstasyon ve Makine hiyerarşisini (Asset Tree) ve proses işlem sırasını (Sequence) görsel olarak haritalandırır.',
+      tag: '02 / HARİTALANDIRMA',
+      title: 'Hatlarınızı haritalandırarak kolay takip sağlar.',
+      subtitle: 'Fabrikanızdaki hatları, istasyonları ve makineleri görsel bir haritada birbirine bağlar; hangi makinenin nerede ve ne durumda olduğunu anında görmenizi sağlar.',
       icon: Network,
       color: 'text-[#F5B301]',
       badgeBg: 'bg-[#F5B301]/10 text-[#F5B301] border-[#F5B301]/30',
       glow: 'from-[#F5B301]/10 via-transparent to-transparent',
       specs: [
-        'Hiyerarşik varlık ağacı (Asset Tree) inşası',
-        'Proses işlem sırası (Sequence routing)',
-        'Akıllı breadcrumb arama ve makine filtreleme'
+        'Tüm makineleri ve hatları görsel ağaç olarak görme',
+        'İstasyon durumlarını (çalışıyor, durdu, arıza) anında izleme',
+        'Hızlı arama ile istediğiniz makineye tek tıkla ulaşma'
       ]
     },
     {
       step: 3,
-      tag: '03 / QUERY STUDIO',
-      title: 'Query Studio: Canlı OEE ve duruş analitiği.',
-      subtitle: 'Yüksek frekanslı sensör telemetrisini, OEE faktörlerini (Kullanılabilirlik, Performans, Kalite) ve Pareto duruş kayıtlarını milisaniyelik hızla sorgular.',
+      tag: '03 / DURUŞ VE VERİMLİLİK',
+      title: 'Duruşları ve arızaları anında görmenizi sağlar.',
+      subtitle: 'Makinelerdeki duruş sürelerini, arıza nedenlerini ve hat verimliliğini gecikmesiz hesaplar; kritik sorunları oluştuğu saniyede yakalar.',
       icon: Activity,
       color: 'text-[#FF7A1A]',
       badgeBg: 'bg-[#FF7A1A]/10 text-[#FF7A1A] border-[#FF7A1A]/30',
       glow: 'from-[#FF7A1A]/10 via-transparent to-transparent',
       specs: [
-        'Gerçek zamanlı OEE hesaplama motoru',
-        'Kök neden duruş (Downtime Pareto) analitiği',
-        'Milisaniyelik telemetri taraması'
+        'Duruş süreleri ve kök neden dağılımı',
+        'Hat bazında anlık verimlilik ve hız takibi',
+        'Operatör onaylı anlık arıza bildirimleri'
       ]
     },
     {
       step: 4,
-      tag: '04 / REPORT STUDIO',
-      title: 'Report Studio: Excel esnekliğinde şablon motoru.',
-      subtitle: 'Canlı telemetri verilerini doğrudan hücre formüllerine bağlayarak resmi denetim, vardiya teslim ve üretim raporlarını (.xlsx) tek tıkla otomatik derler.',
+      tag: '04 / OTOMATİK RAPORLAMA',
+      title: 'Verilerinizi doğrudan Excel formatında raporlar.',
+      subtitle: 'Canlı üretim verilerini kendi Excel formüllerinize bağlar; vardiya teslim ve günlük üretim raporlarını tek tıkla otomatik oluşturur.',
       icon: FileSpreadsheet,
       color: 'text-[#FFF8DC]',
       badgeBg: 'bg-[#F5B301]/20 text-[#FFF8DC] border-[#F5B301]/50',
       glow: 'from-[#F5B301]/20 via-[#FF7A1A]/10 to-transparent',
       specs: [
-        'Açık XML tabanlı gerçek zamanlı Excel derleme',
-        'Parametrik hücre veri bağlama (Data Binding)',
-        'Otomatik vardiya ve denetim belgesi üretimi'
+        'Excel formüllerinizle tam uyumlu otomatik hesaplama',
+        'Vardiya ve gün sonu raporlarını tek tıkla derleme',
+        'Saatler süren manuel veri toplama derdine son'
       ]
     }
   ];
@@ -101,10 +100,10 @@ export const ProgressivePunchyFlow: React.FC<ProgressivePunchyFlowProps> = ({ on
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#15111D]/80 border border-[#F5B301]/20 backdrop-blur-md font-mono text-xs text-slate-300 shadow-xl">
           <span className="text-[#F5B301] font-bold">Adım {activeStep} / 4:</span>
           <span>
-            {activeStep === 1 && 'Air-Gapped Güvenlik'}
-            {activeStep === 2 && 'Path Definer Topolojisi'}
-            {activeStep === 3 && 'Query Studio & OEE'}
-            {activeStep === 4 && 'Şablon Motoru (Tool Hazır!)'}
+            {activeStep === 1 && 'İnternetsiz Güvenlik'}
+            {activeStep === 2 && 'Hat Haritalandırma'}
+            {activeStep === 3 && 'Duruş & Arıza Takibi'}
+            {activeStep === 4 && 'Otomatik Excel Raporlama (Tool Hazır!)'}
           </span>
           <div className="flex gap-1 ml-2">
             {[1, 2, 3, 4].map((s) => (
@@ -163,7 +162,7 @@ export const ProgressivePunchyFlow: React.FC<ProgressivePunchyFlowProps> = ({ on
                       Nov4 Yeteneği
                     </div>
                     <div className="text-sm font-bold font-display text-white">
-                      Sahada Çalışan Gerçek Altyapı
+                      Fabrikanız İçin Pratik Çözüm
                     </div>
                   </div>
                 </div>
@@ -179,7 +178,7 @@ export const ProgressivePunchyFlow: React.FC<ProgressivePunchyFlowProps> = ({ on
               </div>
 
               {/* PROGRESSIVE "TOOL'U DENE" EVOLUTION */}
-              {/* If step 4: BLAZING FULL GLOW! (Kullanıcının istediği 4. kaydırmada tam parlayan kart) */}
+              {/* Step 4: BLAZING FULL GLOW (4. kaydırmada tam parlayan kart) */}
               {isStep4 ? (
                 <div className="max-w-xl mx-auto animate-scaleUp">
                   <div className="p-6 rounded-2xl bg-gradient-to-br from-[#F5B301]/20 via-[#15111D] to-[#FF7A1A]/10 border-2 border-[#F5B301] glow-nova-card-blazing shadow-2xl">
@@ -190,7 +189,7 @@ export const ProgressivePunchyFlow: React.FC<ProgressivePunchyFlowProps> = ({ on
                           <span>Tüm Modüller Hazır • 4. Adım Tamamlandı</span>
                         </div>
                         <h3 className="text-xl font-black font-display text-white">
-                          Nov4 Supernova'yı Şimdi Canlı Dene
+                          Nov4'ü Şimdi Canlı Dene
                         </h3>
                         <p className="text-xs text-slate-300 mt-1 font-mono">
                           21 makine, montaj hatları ve şablon editörüyle hazır ortam.

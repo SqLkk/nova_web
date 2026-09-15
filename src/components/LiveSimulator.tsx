@@ -63,9 +63,9 @@ export const LiveSimulator: React.FC = () => {
               Nov4 Canlı Simülatör
             </h2>
             <p className="text-sm text-slate-300 mt-2 max-w-2xl font-normal">
-              Nov4 SCADA & telemetri platformunu doğrudan tarayıcınızda test edin. 
+              Nov4 endüstriyel veri ve raporlama platformunu doğrudan tarayıcınızda test edin. 
               Aşağıdaki hazır hesaplardan birine tıklayıp giriş yapabilir; montaj hatlarını, KUKA robotlarını, 
-              Siemens PLC telemetrisini ve şablon editörünü canlı inceleyebilirsiniz.
+              Siemens PLC verilerini ve şablon editörünü canlı inceleyebilirsiniz.
             </p>
           </div>
 
@@ -135,7 +135,7 @@ export const LiveSimulator: React.FC = () => {
         {/* Embedded Supernova Application Frame */}
         <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-[#15111D] shadow-2xl shadow-black/80">
           
-          {/* SCADA Machine Frame Header Bar */}
+          {/* Machine Frame Header Bar */}
           <div className="h-11 px-4 bg-[#0E0B14] border-b border-white/10 flex items-center justify-between select-none">
             
             <div className="flex items-center gap-2">
@@ -146,7 +146,7 @@ export const LiveSimulator: React.FC = () => {
               </div>
               <div className="flex items-center gap-2 font-mono text-xs text-slate-300">
                 <Terminal className="w-3.5 h-3.5 text-[#F5B301]" />
-                <span className="font-semibold text-white">nov4-scada://cluster-node-01</span>
+                <span className="font-semibold text-white">nov4-node://cluster-01</span>
                 <span className="text-slate-500">|</span>
                 <span className="text-emerald-400 flex items-center gap-1">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
