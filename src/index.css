@@ -2,74 +2,69 @@
 
 @layer utilities {
   .bg-nova-void {
-    background-color: #0C0A10;
+    background-color: #08060B;
   }
 
   .bg-nova-surface {
-    background-color: #14111B;
+    background-color: #0E0B14;
   }
   
   .bg-nova-card {
-    background-color: #1B1624;
+    background-color: #15111D;
   }
 
   .bg-nova-elevated {
-    background-color: #272132;
+    background-color: #1F192A;
   }
 
-  .text-nova-gold {
-    color: #F5B301;
+  /* Wide Atmospheric Ambient Gold Lighting */
+  .bg-nova-wide-aura {
+    background: radial-gradient(circle at 50% 15%, rgba(245, 179, 1, 0.22) 0%, rgba(255, 122, 26, 0.08) 35%, rgba(8, 6, 11, 0) 75%);
   }
 
-  .text-nova-amber {
-    color: #FF7A1A;
+  .bg-nova-deep-glow {
+    background: radial-gradient(ellipse at 50% 40%, rgba(245, 179, 1, 0.16) 0%, rgba(255, 122, 26, 0.04) 45%, rgba(8, 6, 11, 0) 80%);
   }
 
-  .border-nova-subtle {
-    border-color: rgba(245, 179, 1, 0.15);
+  .glow-nova-headline {
+    text-shadow: 
+      0 0 40px rgba(245, 179, 1, 0.5),
+      0 0 90px rgba(245, 179, 1, 0.3),
+      0 0 160px rgba(255, 122, 26, 0.2);
   }
 
-  .border-nova-gold {
-    border-color: rgba(245, 179, 1, 0.4);
+  .glow-nova-card-faint {
+    box-shadow: 0 0 25px -10px rgba(245, 179, 1, 0.15);
   }
 
-  .glow-nova-lg {
-    text-shadow: 0 0 60px rgba(245, 179, 1, 0.4), 0 0 120px rgba(255, 122, 26, 0.2);
+  .glow-nova-card-blazing {
+    box-shadow: 
+      0 0 40px rgba(245, 179, 1, 0.45),
+      0 0 80px rgba(255, 122, 26, 0.25),
+      inset 0 0 30px rgba(245, 179, 1, 0.2);
   }
 
-  .glow-nova-box {
-    box-shadow: 0 0 50px -10px rgba(245, 179, 1, 0.25);
-  }
-
-  .glow-nova-ghost {
-    box-shadow: 0 0 40px -15px rgba(245, 179, 1, 0.15), inset 0 0 20px rgba(245, 179, 1, 0.05);
-  }
-
-  .bg-nova-grid {
-    background-size: 48px 48px;
+  .bg-nova-grid-subtle {
+    background-size: 56px 56px;
     background-image: 
-      linear-gradient(to right, rgba(245, 179, 1, 0.035) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(245, 179, 1, 0.035) 1px, transparent 1px);
-  }
-  
-  .bg-nova-radial {
-    background: radial-gradient(circle at 50% 20%, rgba(245, 179, 1, 0.14) 0%, rgba(255, 122, 26, 0.05) 30%, rgba(12, 10, 16, 0) 70%);
-  }
-
-  .bg-nova-subtle-glow {
-    background: radial-gradient(circle at 50% 50%, rgba(245, 179, 1, 0.08) 0%, rgba(12, 10, 16, 0) 65%);
+      linear-gradient(to right, rgba(245, 179, 1, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(245, 179, 1, 0.04) 1px, transparent 1px);
   }
 }
 
-/* Custom scrollbar */
+/* Scroll smooth */
+html {
+  scroll-behavior: smooth;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0C0A10;
+  background: #08060B;
 }
 ::-webkit-scrollbar-thumb {
-  background: #272132;
+  background: #231C30;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {

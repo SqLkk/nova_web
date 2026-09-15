@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { PunchyScrollSections } from './components/PunchyScrollSections';
+import { ProgressivePunchyFlow } from './components/ProgressivePunchyFlow';
 import { LiveSimulator } from './components/LiveSimulator';
 import { Footer } from './components/Footer';
 import { TechDetailsModal } from './components/TechDetailsModal';
@@ -12,21 +12,21 @@ export const App: React.FC = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   const scrollToDemo = () => {
-    const el = document.getElementById('demo-section') || document.getElementById('simulator');
+    const el = document.getElementById('demo-section');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   const scrollDownFromHero = () => {
-    const el = document.getElementById('punchy-airgap');
+    const el = document.getElementById('step-1');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <div className="min-h-screen bg-[#0C0A10] text-[#F4F1EA] selection:bg-[#F5B301]/30 selection:text-[#FCD34D]">
+    <div className="min-h-screen bg-[#08060B] text-[#F4F1EA] selection:bg-[#F5B301]/30 selection:text-[#FCD34D]">
       {/* Fixed Minimalist Navbar */}
       <Navbar
         onOpenTechDetails={() => setIsTechDetailsOpen(true)}
@@ -34,27 +34,27 @@ export const App: React.FC = () => {
         onOpenContact={() => setIsContactOpen(true)}
       />
 
-      {/* Main Flow */}
+      {/* Main Experience */}
       <main>
-        {/* 1. Hero: Giant Glowing NOVA + Core Purpose + Ghost 'Tool'u Dene' Card */}
+        {/* 1. Hero: Giant Glowing Nov4 Title + Real Purpose + Faint Ghost Tool'u Dene Card */}
         <Hero 
           onNavigateToDemo={scrollToDemo} 
           onScrollDown={scrollDownFromHero} 
         />
 
-        {/* 2. Punchy Scrollytelling Sections: 1 strong sentence per scroll */}
-        <PunchyScrollSections onNavigateToDemo={scrollToDemo} />
+        {/* 2. 4-Step Progressive Punchy Flow: 
+               Each scroll reveals 1 real Nov4 feature. 
+               On step 4 (4. kez kaydırınca) the Tool'u Dene card blazes in full golden glory! */}
+        <ProgressivePunchyFlow onNavigateToDemo={scrollToDemo} />
 
-        {/* 3. Embedded Live Supernova Simulator */}
-        <div id="demo-section">
-          <LiveSimulator />
-        </div>
+        {/* 3. Embedded Live Supernova SCADA Simulator (Ready with in-memory factory & demo logins) */}
+        <LiveSimulator />
       </main>
 
-      {/* Minimal Footer */}
+      {/* Clean Minimalist Footer */}
       <Footer />
 
-      {/* Top-Right Triggered Modals */}
+      {/* Top-Right Modals */}
       <TechDetailsModal
         isOpen={isTechDetailsOpen}
         onClose={() => setIsTechDetailsOpen(false)}

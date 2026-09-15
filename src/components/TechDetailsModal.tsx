@@ -39,7 +39,7 @@ export const TechDetailsModal: React.FC<TechDetailsModalProps> = ({ isOpen, onCl
             </div>
             <div>
               <h2 className="text-lg font-bold font-display text-white flex items-center gap-2">
-                <span>NOVA / Supernova</span>
+                <span>Nov4</span>
                 <span className="text-xs px-2 py-0.5 rounded font-mono bg-[#F5B301]/10 text-[#F5B301] border border-[#F5B301]/25">
                   TEKNİK DETAYLAR
                 </span>

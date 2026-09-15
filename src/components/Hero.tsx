@@ -1,20 +1,21 @@
 import React from 'react';
-import { Play, ChevronDown, Terminal, Sparkles } from 'lucide-react';
+import { Play, ChevronDown, Terminal, Cpu } from 'lucide-react';
 
 interface HeroProps {
   onNavigateToDemo: () => void;
   onScrollDown: () => void;
+  scrollStep?: number;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onNavigateToDemo, onScrollDown }) => {
+export const Hero: React.FC<HeroProps> = ({ onNavigateToDemo, onScrollDown, scrollStep = 0 }) => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-between pt-24 pb-10 px-4 sm:px-6 bg-[#0C0A10] bg-nova-radial overflow-hidden selection:bg-[#F5B301]/30">
+    <section className="relative min-h-screen flex flex-col items-center justify-between pt-24 pb-12 px-4 sm:px-6 bg-[#08060B] bg-nova-wide-aura overflow-hidden selection:bg-[#F5B301]/30">
       
-      {/* Background Subtle Tech Grid */}
-      <div className="absolute inset-0 bg-nova-grid opacity-60 pointer-events-none"></div>
+      {/* Broad Ambient Golden Light Spill */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[750px] bg-gradient-to-b from-[#F5B301]/20 via-[#FF7A1A]/8 to-transparent rounded-full blur-3xl pointer-events-none"></div>
 
-      {/* Decorative subtle ambient circle */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#F5B301]/5 rounded-full blur-3xl pointer-events-none"></div>
+      {/* Subtle Grid Background */}
+      <div className="absolute inset-0 bg-nova-grid-subtle opacity-70 pointer-events-none"></div>
 
       {/* Top Spacer */}
       <div></div>
@@ -22,38 +23,38 @@ export const Hero: React.FC<HeroProps> = ({ onNavigateToDemo, onScrollDown }) =>
       {/* Main Center Stage */}
       <div className="relative z-10 text-center max-w-4xl mx-auto flex flex-col items-center">
         
-        {/* Subtle Top Badge */}
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium bg-[#F5B301]/10 text-[#F5B301] border border-[#F5B301]/30 mb-4 animate-pulse">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span className="tracking-widest uppercase">Endüstriyel Telemetri & Canlı SCADA</span>
+        {/* Subtle Badge */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-medium bg-[#F5B301]/10 text-[#F5B301] border border-[#F5B301]/30 mb-6 backdrop-blur-md">
+          <Cpu className="w-3.5 h-3.5" />
+          <span className="tracking-widest uppercase">Yerel Endüstriyel SCADA & Veri Platformu</span>
         </div>
 
-        {/* GIANT "NOVA" BRANDING */}
-        <div className="relative my-2 select-none">
-          <h1 className="text-7xl sm:text-9xl lg:text-[11.5rem] font-black font-display tracking-tight leading-none text-transparent bg-clip-text bg-gradient-to-b from-[#FFF5D0] via-[#F5B301] to-[#FF7A1A] glow-nova-lg drop-shadow-[0_15px_35px_rgba(245,179,1,0.25)]">
-            NOVA
+        {/* GIANT "Nov4" TITLE */}
+        <div className="relative my-1 select-none">
+          <h1 className="text-7xl sm:text-9xl lg:text-[11.5rem] font-black font-display tracking-tight leading-none text-transparent bg-clip-text bg-gradient-to-b from-[#FFF8DC] via-[#F5B301] to-[#E68A00] glow-nova-headline drop-shadow-[0_20px_45px_rgba(245,179,1,0.35)]">
+            Nov4
           </h1>
         </div>
 
-        {/* Core Purpose: Short & Crisp Statement */}
-        <p className="text-base sm:text-xl text-slate-300 font-normal max-w-2xl leading-relaxed mt-2 mb-8">
-          Fabrika sahasındaki PLC, robot ve sensör telemetrisini tek ekranda toplayan, 
-          ağ topolojisi ve Excel benzeri dinamik şablon motoruyla güçlendirilmiş bağımsız endüstriyel platform.
+        {/* Real Grounded Purpose Text */}
+        <p className="text-base sm:text-lg text-slate-300 font-normal max-w-2xl leading-relaxed mt-4 mb-10">
+          Endüstriyel veri kaynaklarını, varlık hiyerarşisini ve canlı telemetriyi tek çatı altında toplayan; 
+          <strong className="text-white font-medium"> Path Definer</strong>, <strong className="text-white font-medium">Query Studio</strong> ve <strong className="text-white font-medium">Excel şablon motoruna</strong> sahip yerel SCADA platformu.
         </p>
 
-        {/* ORTADA SİLİK / GHOST "TOOL'U DENE" KARTI */}
+        {/* ORTADAKİ SİLİK "TOOL'U DENE" KARTI (Başlangıçta yarı saydam, 4 kez kaydırdıkça parlar) */}
         <div className="w-full max-w-md">
           <button
             onClick={onNavigateToDemo}
-            className="w-full group relative p-4 rounded-2xl bg-[#14111B]/40 hover:bg-[#1B1624]/90 border border-white/10 hover:border-[#F5B301]/50 backdrop-blur-md transition-all duration-300 glow-nova-ghost hover:glow-nova-box cursor-pointer text-left"
+            className="w-full group relative p-4 rounded-2xl bg-[#15111D]/40 hover:bg-[#15111D]/80 border border-[#F5B301]/25 hover:border-[#F5B301]/60 backdrop-blur-md transition-all duration-500 glow-nova-card-faint cursor-pointer text-left"
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#F5B301]/10 border border-[#F5B301]/30 flex items-center justify-center text-[#F5B301] group-hover:scale-105 group-hover:bg-[#F5B301] group-hover:text-[#0C0A10] transition-all">
+                <div className="w-10 h-10 rounded-xl bg-[#F5B301]/10 border border-[#F5B301]/30 flex items-center justify-center text-[#F5B301] group-hover:bg-[#F5B301] group-hover:text-[#08060B] transition-all">
                   <Play className="w-4 h-4 fill-current ml-0.5" />
                 </div>
                 <div>
-                  <div className="text-xs font-mono text-[#F5B301] uppercase tracking-wider font-semibold">
+                  <div className="text-[11px] font-mono text-[#F5B301] uppercase tracking-wider font-semibold">
                     Simülasyon Ortamı
                   </div>
                   <div className="text-base font-bold font-display text-white group-hover:text-[#FCD34D] transition-colors">
@@ -62,20 +63,21 @@ export const Hero: React.FC<HeroProps> = ({ onNavigateToDemo, onScrollDown }) =>
                 </div>
               </div>
 
-              {/* Status pill */}
-              <div className="flex items-center gap-2 px-2.5 py-1 rounded-lg bg-black/40 border border-white/5 font-mono text-[11px] text-slate-400 group-hover:text-emerald-400 transition-colors">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+              {/* Status Indicator */}
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/5 font-mono text-[11px] text-slate-400">
+                <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
                 <span>Canlı Demo</span>
               </div>
             </div>
 
-            <div className="mt-3 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-slate-500 group-hover:text-slate-400 transition-colors">
-              <span className="flex items-center gap-1.5">
+            {/* Hint about scrolling to unlock full glow */}
+            <div className="mt-3 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-slate-500">
+              <span className="flex items-center gap-1.5 text-slate-400">
                 <Terminal className="w-3 h-3 text-[#F5B301]" />
-                In-Memory Mock Fabrika (21 Makine)
+                Mock Fabrika (21 Makine & Hatlar)
               </span>
-              <span className="text-[#F5B301] opacity-75 group-hover:opacity-100">
-                Başlat →
+              <span className="text-[#F5B301] font-semibold">
+                Aşağı Kaydırın ↓
               </span>
             </div>
           </button>
@@ -84,9 +86,12 @@ export const Hero: React.FC<HeroProps> = ({ onNavigateToDemo, onScrollDown }) =>
       </div>
 
       {/* Bottom Scroll Prompt */}
-      <div className="relative z-10 flex flex-col items-center gap-2 text-slate-500 hover:text-slate-300 transition-colors cursor-pointer select-none" onClick={onScrollDown}>
-        <span className="text-xs font-mono tracking-widest uppercase text-[#F5B301]/80">
-          Aşağı Kaydırın
+      <div 
+        onClick={onScrollDown}
+        className="relative z-10 flex flex-col items-center gap-2 text-slate-500 hover:text-slate-200 transition-colors cursor-pointer select-none"
+      >
+        <span className="text-[11px] font-mono tracking-widest uppercase text-[#F5B301]/80">
+          Özellikleri İnceleyin
         </span>
         <ChevronDown className="w-4 h-4 animate-bounce text-[#F5B301]" />
       </div>
