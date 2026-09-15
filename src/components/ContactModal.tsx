@@ -8,7 +8,7 @@ interface ContactModalProps {
 
 export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
   const [copied, setCopied] = useState(false);
-  const email = 'utku.karaca@nov4.com.tr';
+  const email = 'info@nov4.com.tr';
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -61,22 +61,22 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
         {/* Content */}
         <div className="p-6 sm:p-8 text-center space-y-5">
           <p className="text-sm sm:text-base text-slate-300 font-sans leading-relaxed">
-            İletişim için lütfen buraya mail atın:
+            Buradan iletişime geçebilirsiniz:
           </p>
 
-          {/* Direct Email Box */}
-          <div className="p-4 rounded-xl bg-[#0D0B12] border border-[#F5B301]/40 shadow-inner flex flex-col sm:flex-row items-center justify-between gap-3 group hover:border-[#F5B301]/70 transition-all">
+          {/* Direct Email Box - perfectly fitted with whitespace-nowrap */}
+          <div className="p-3.5 sm:p-4 rounded-xl bg-[#0D0B12] border border-[#F5B301]/40 shadow-inner flex items-center justify-between gap-2.5 sm:gap-3 group hover:border-[#F5B301]/70 transition-all">
             <a
               href={`mailto:${email}`}
-              className="text-sm sm:text-base font-mono font-semibold text-[#F5B301] hover:text-[#FFC837] hover:underline transition-colors flex items-center gap-1.5 break-all"
+              className="text-sm sm:text-base font-mono font-semibold text-[#F5B301] hover:text-[#FFC837] hover:underline transition-colors flex items-center gap-1.5 whitespace-nowrap"
             >
               <span>{email}</span>
-              <ArrowUpRight className="w-4 h-4 opacity-70 group-hover:opacity-100 shrink-0" />
+              <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 opacity-70 group-hover:opacity-100 shrink-0" />
             </a>
 
             <button
               onClick={handleCopy}
-              className="w-full sm:w-auto px-3 py-1.5 rounded-lg bg-[#1B1624] hover:bg-[#272132] text-slate-300 hover:text-white border border-white/10 text-xs font-mono flex items-center justify-center gap-1.5 transition-all cursor-pointer shrink-0 active:scale-95"
+              className="px-2.5 sm:px-3 py-1.5 rounded-lg bg-[#1B1624] hover:bg-[#272132] text-slate-300 hover:text-white border border-white/10 text-xs font-mono flex items-center justify-center gap-1.5 transition-all cursor-pointer shrink-0 active:scale-95"
               title="Adresi Kopyala"
             >
               {copied ? (
