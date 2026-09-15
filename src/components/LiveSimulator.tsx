@@ -8,31 +8,43 @@ export const LiveSimulator: React.FC = () => {
 
   const demoAccounts = [
     {
-      role: 'Geliştirici (Önerilen)',
-      username: 'utku',
-      password: 'utku123',
-      badge: 'Full Yetki / Superuser',
-      color: 'border-[#F5B301]/40 text-[#F5B301] bg-[#F5B301]/5'
-    },
-    {
       role: 'Sistem Yöneticisi',
       username: 'admin',
       password: 'Sp7_Admin#9841',
-      badge: 'Yönetim & ACL',
+      badge: 'Admin Paneli & ACL',
+      desc: 'Kullanıcı, rol ve sistem izinleri',
       color: 'border-emerald-500/40 text-emerald-400 bg-emerald-500/5'
     },
     {
-      role: 'Hat Operatörü',
+      role: 'Sistem / Hat Mühendisi',
+      username: 'engineer',
+      password: 'Sp7_Engineer#5544',
+      badge: 'Space Map & Figürler, Python',
+      desc: 'Topoloji temaları, figürler ve SQL',
+      color: 'border-cyan-500/40 text-cyan-400 bg-cyan-500/5'
+    },
+    {
+      role: 'Düz User (Operatör)',
       username: 'operator',
       password: 'Sp7_Operator#1520',
-      badge: 'İzleme & Alarm Onayı',
+      badge: 'İzleme & Operasyon',
+      desc: 'Canlı panolar ve alarm onayı',
       color: 'border-amber-500/40 text-amber-400 bg-amber-500/5'
+    },
+    {
+      role: 'Geliştirici (Superuser)',
+      username: 'utku',
+      password: 'utku123',
+      badge: 'Full Yetki / Sistem Mimarı',
+      desc: 'Tüm modüllerde sınırsız yetki',
+      color: 'border-[#F5B301]/40 text-[#F5B301] bg-[#F5B301]/5'
     },
     {
       role: 'İzleyici (Misafir)',
       username: 'viewer',
       password: 'Sp7_Viewer#7611',
       badge: 'Salt Okunur',
+      desc: 'Pano ve rapor görüntüleme',
       color: 'border-slate-500/40 text-slate-400 bg-slate-500/5'
     }
   ];
@@ -104,21 +116,21 @@ export const LiveSimulator: React.FC = () => {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2.5">
             {demoAccounts.map((acc) => (
               <button
                 key={acc.username}
                 onClick={() => handleCopy(acc)}
-                className={`flex flex-col text-left p-3 rounded-lg border transition-all cursor-pointer ${acc.color} hover:border-[#F5B301]`}
+                className={`flex flex-col text-left p-2.5 rounded-lg border transition-all cursor-pointer ${acc.color} hover:border-[#F5B301]`}
               >
                 <div className="flex items-center justify-between w-full mb-1">
-                  <span className="text-xs font-semibold">{acc.role}</span>
+                  <span className="text-xs font-semibold truncate">{acc.role}</span>
                   {copiedRole === acc.username ? (
-                    <span className="flex items-center gap-1 text-[10px] text-emerald-400 font-mono">
-                      <Check className="w-3 h-3" /> Kopyalandı
+                    <span className="flex items-center gap-1 text-[10px] text-emerald-400 font-mono shrink-0">
+                      <Check className="w-3 h-3" />
                     </span>
                   ) : (
-                    <span className="text-[10px] opacity-75 font-mono">{acc.badge}</span>
+                    <span className="text-[9px] opacity-75 font-mono shrink-0">{acc.badge}</span>
                   )}
                 </div>
                 <div className="font-mono text-xs text-white/90">
@@ -126,6 +138,9 @@ export const LiveSimulator: React.FC = () => {
                 </div>
                 <div className="font-mono text-xs text-white/90">
                   <span className="opacity-70">şifre:</span> <span className="font-bold text-white">{acc.password}</span>
+                </div>
+                <div className="text-[10px] text-slate-400 mt-1 line-clamp-1 opacity-80">
+                  {acc.desc}
                 </div>
               </button>
             ))}
