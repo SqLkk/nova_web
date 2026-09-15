@@ -52,7 +52,7 @@ export const App: React.FC = () => {
       </main>
 
       {/* Clean Minimalist Footer */}
-      <Footer />
+      <Footer onOpenContact={() => setIsContactOpen(true)} />
 
       {/* Top-Right Modals */}
       <TechDetailsModal

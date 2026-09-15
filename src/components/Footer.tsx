@@ -1,7 +1,11 @@
 import React from 'react';
 import { ExternalLink, Terminal } from 'lucide-react';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onOpenContact?: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
   return (
     <footer className="bg-[#060408] text-slate-400 py-8 sm:py-12 border-t border-white/5 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,6 +49,14 @@ export const Footer: React.FC = () => {
             <a href="#step-4" className="hover:text-[#F5B301] transition-colors">
               Otomatik Excel Raporlama
             </a>
+            {onOpenContact && (
+              <button
+                onClick={onOpenContact}
+                className="hover:text-[#F5B301] transition-colors cursor-pointer"
+              >
+                İletişim
+              </button>
+            )}
             <a 
               href="/demo/" 
               target="_blank" 
