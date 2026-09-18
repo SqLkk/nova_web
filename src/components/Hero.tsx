@@ -1,5 +1,6 @@
 import React from 'react';
 import { Play, ChevronDown, Terminal, Cpu } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface HeroProps {
   onNavigateToDemo: () => void;
@@ -8,6 +9,8 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onNavigateToDemo, onScrollDown, scrollStep = 0 }) => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-[92vh] sm:min-h-screen flex flex-col items-center justify-between pt-20 sm:pt-24 pb-8 sm:pb-12 px-3 sm:px-6 bg-[#08060B] bg-nova-wide-aura overflow-hidden selection:bg-[#F5B301]/30">
       
@@ -26,7 +29,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigateToDemo, onScrollDown, scro
         {/* Subtle Badge */}
         <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 rounded-full text-[10px] sm:text-xs font-mono font-medium bg-[#F5B301]/10 text-[#F5B301] border border-[#F5B301]/30 mb-4 sm:mb-6 backdrop-blur-md">
           <Cpu className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-          <span className="tracking-wider sm:tracking-widest uppercase">Endüstriyel Veri & Otomatik Raporlama</span>
+          <span className="tracking-wider sm:tracking-widest uppercase">{t.hero.badge}</span>
         </div>
 
         {/* GIANT "Nov4" TITLE: Fully responsive from mobile to 4K */}
@@ -38,7 +41,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigateToDemo, onScrollDown, scro
 
         {/* Plain Language Purpose: What it actually does */}
         <p className="text-sm sm:text-base md:text-xl text-slate-300 font-normal max-w-2xl leading-relaxed mt-3 sm:mt-4 mb-8 sm:mb-10 px-2">
-          Fabrikanızdaki tüm makinelerin verilerini tek ekranda toplayan, üretim hatlarınızı haritalandırarak kolay takip sağlayan ve verilerinizi Excel formülleriyle otomatik raporlayan yerel platform.
+          {t.hero.purpose}
         </p>
 
         {/* ORTADAKİ SİLİK "DENEYELİM" KARTI (Mobile touch friendly) */}
@@ -54,10 +57,10 @@ export const Hero: React.FC<HeroProps> = ({ onNavigateToDemo, onScrollDown, scro
                 </div>
                 <div>
                   <div className="text-[10px] sm:text-[11px] font-mono text-[#F5B301] uppercase tracking-wider font-semibold">
-                    Canlı Simülasyon
+                    {t.hero.demoCard.badge}
                   </div>
                   <div className="text-sm sm:text-base font-bold font-display text-white group-hover:text-[#FCD34D] transition-colors">
-                    Nov4'ü Canlı Deneyelim
+                    {t.hero.demoCard.title}
                   </div>
                 </div>
               </div>
@@ -65,7 +68,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigateToDemo, onScrollDown, scro
               {/* Status Indicator */}
               <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-black/40 border border-white/5 font-mono text-[10px] sm:text-[11px] text-slate-400">
                 <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                <span>Canlı Demo</span>
+                <span>{t.hero.demoCard.status}</span>
               </div>
             </div>
 
@@ -73,10 +76,10 @@ export const Hero: React.FC<HeroProps> = ({ onNavigateToDemo, onScrollDown, scro
             <div className="mt-2.5 sm:mt-3 pt-2.5 sm:pt-3 border-t border-white/5 flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-slate-500">
               <span className="flex items-center gap-1.5 text-slate-400">
                 <Terminal className="w-3 h-3 text-[#F5B301]" />
-                Mock Fabrika (21 Makine)
+                {t.hero.demoCard.factoryHint}
               </span>
               <span className="text-[#F5B301] font-semibold">
-                Keşfedelim • Aşağı Kaydırın ↓
+                {t.hero.demoCard.scrollHint}
               </span>
             </div>
           </button>
@@ -90,7 +93,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigateToDemo, onScrollDown, scro
         className="relative z-10 flex flex-col items-center gap-1.5 text-slate-500 hover:text-slate-200 transition-colors cursor-pointer select-none mt-4"
       >
         <span className="text-[10px] sm:text-[11px] font-mono tracking-widest uppercase text-[#F5B301]/80">
-          Özellikleri İnceleyin
+          {t.hero.scrollPrompt}
         </span>
         <ChevronDown className="w-4 h-4 animate-bounce text-[#F5B301]" />
       </div>

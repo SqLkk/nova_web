@@ -6,8 +6,9 @@ import { LiveSimulator } from './components/LiveSimulator';
 import { Footer } from './components/Footer';
 import { TechDetailsModal } from './components/TechDetailsModal';
 import { ContactModal } from './components/ContactModal';
+import { LanguageProvider } from './context/LanguageContext';
 
-export const App: React.FC = () => {
+export const AppContent: React.FC = () => {
   const [isTechDetailsOpen, setIsTechDetailsOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
 
@@ -44,7 +45,7 @@ export const App: React.FC = () => {
 
         {/* 2. 4-Step Progressive Punchy Flow: 
                Each scroll reveals 1 real Nov4 feature. 
-               On step 4 (4. kez kaydırınca) the Tool'u Dene card blazes in full golden glory! */}
+               On step 4 the Tool'u Dene card blazes in full golden glory! */}
         <ProgressivePunchyFlow onNavigateToDemo={scrollToDemo} />
 
         {/* 3. Embedded Live Simulator (Ready with in-memory factory & demo logins) */}
@@ -65,6 +66,14 @@ export const App: React.FC = () => {
         onClose={() => setIsContactOpen(false)}
       />
     </div>
+  );
+};
+
+export const App: React.FC = () => {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 };
 

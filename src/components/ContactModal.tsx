@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Mail, Check, Copy, ArrowUpRight, MapPin } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -9,6 +10,7 @@ interface ContactModalProps {
 export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
   const [copied, setCopied] = useState(false);
   const email = 'info@nov4.com.tr';
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -45,14 +47,14 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
               <Mail className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="text-base font-bold font-display text-white">İletişim</h3>
+              <h3 className="text-base font-bold font-display text-white">{t.contact.title}</h3>
             </div>
           </div>
 
           <button
             onClick={onClose}
             className="p-1.5 rounded-lg bg-[#272132] text-slate-400 hover:text-white transition-colors cursor-pointer"
-            aria-label="Kapat"
+            aria-label={t.contact.closeAria}
           >
             <X className="w-4 h-4" />
           </button>
@@ -61,7 +63,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
         {/* Content */}
         <div className="p-6 sm:p-8 text-center space-y-5">
           <p className="text-sm sm:text-base text-slate-300 font-sans leading-relaxed">
-            Buradan iletişime geçebilirsiniz:
+            {t.contact.prompt}
           </p>
 
           {/* Direct Email Box - perfectly fitted with whitespace-nowrap */}
@@ -77,26 +79,26 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
             <button
               onClick={handleCopy}
               className="px-2.5 sm:px-3 py-1.5 rounded-lg bg-[#1B1624] hover:bg-[#272132] text-slate-300 hover:text-white border border-white/10 text-xs font-mono flex items-center justify-center gap-1.5 transition-all cursor-pointer shrink-0 active:scale-95"
-              title="Adresi Kopyala"
+              title={t.contact.copyTitle}
             >
               {copied ? (
                 <>
                   <Check className="w-3.5 h-3.5 text-emerald-400" />
-                  <span className="text-emerald-400 font-medium">Kopyalandı</span>
+                  <span className="text-emerald-400 font-medium">{t.contact.copiedBtn}</span>
                 </>
               ) : (
                 <>
                   <Copy className="w-3.5 h-3.5" />
-                  <span>Kopyala</span>
+                  <span>{t.contact.copyBtn}</span>
                 </>
               )}
             </button>
           </div>
 
-          {/* Location: İzmir, Türkiye */}
+          {/* Location */}
           <div className="pt-4 border-t border-white/5 flex items-center justify-center gap-2 text-xs text-slate-400 font-mono">
             <MapPin className="w-3.5 h-3.5 text-[#F5B301] shrink-0" />
-            <span>İzmir, Türkiye</span>
+            <span>{t.contact.location}</span>
           </div>
         </div>
       </div>

@@ -1,55 +1,14 @@
 import React, { useState, useRef } from 'react';
 import { MonitorPlay, ExternalLink, RotateCcw, KeyRound, Check, Sparkles, Terminal, Smartphone } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export const LiveSimulator: React.FC = () => {
   const [copiedRole, setCopiedRole] = useState<string | null>(null);
   const [iframeKey, setIframeKey] = useState<number>(0);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const { t } = useLanguage();
 
-  const demoAccounts = [
-    {
-      role: 'Sistem Yöneticisi',
-      username: 'admin',
-      password: 'Sp7_Admin#9841',
-      badge: 'Admin & ACL',
-      desc: 'Kullanıcı, rol ve sistem izinleri',
-      color: 'border-emerald-500/40 text-emerald-400 bg-emerald-500/5'
-    },
-    {
-      role: 'Sistem / Hat Mühendisi',
-      username: 'engineer',
-      password: 'Sp7_Engineer#5544',
-      badge: 'Harita & Figürler, Python',
-      desc: 'Topoloji temaları, figürler ve SQL',
-      color: 'border-cyan-500/40 text-cyan-400 bg-cyan-500/5'
-    },
-    {
-      role: 'Düz User (Operatör)',
-      username: 'operator',
-      password: 'Sp7_Operator#1520',
-      badge: 'İzleme & Operasyon',
-      desc: 'Canlı panolar ve alarm onayı',
-      color: 'border-amber-500/40 text-amber-400 bg-amber-500/5'
-    },
-    {
-      role: 'Geliştirici (Superuser)',
-      username: 'utku',
-      password: 'utku123',
-      badge: 'Full Yetki / Mimari',
-      desc: 'Tüm modüllerde sınırsız yetki',
-      color: 'border-[#F5B301]/40 text-[#F5B301] bg-[#F5B301]/5'
-    },
-    {
-      role: 'İzleyici (Misafir)',
-      username: 'viewer',
-      password: 'Sp7_Viewer#7611',
-      badge: 'Salt Okunur',
-      desc: 'Pano ve rapor görüntüleme',
-      color: 'border-slate-500/40 text-slate-400 bg-slate-500/5'
-    }
-  ];
-
-  const handleCopy = (account: typeof demoAccounts[0]) => {
+  const handleCopy = (account: { username: string; password: string }) => {
     const textToCopy = `${account.username} / ${account.password}`;
     navigator.clipboard.writeText(textToCopy);
     setCopiedRole(account.username);
@@ -69,14 +28,13 @@ export const LiveSimulator: React.FC = () => {
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-[10px] sm:text-xs font-mono bg-[#F5B301]/10 text-[#F5B301] border border-[#F5B301]/25 mb-2.5">
               <MonitorPlay className="w-3.5 h-3.5" />
-              <span>İNTERAKTİF CANLI ORTAM</span>
+              <span>{t.liveSimulator.badge}</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-extrabold font-display text-white tracking-tight">
-              Nov4 Canlı Simülatör
+              {t.liveSimulator.title}
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 mt-2 max-w-2xl font-normal leading-relaxed">
-              Nov4 endüstriyel veri ve raporlama platformunu doğrudan tarayıcınızda test edin. 
-              Aşağıdaki hazır hesaplardan birine tıklayıp bilgileri panoya alabilir; montaj hatlarını, KUKA robotlarını ve şablon editörünü inceleyebilirsiniz.
+              {t.liveSimulator.description}
             </p>
           </div>
 
@@ -85,10 +43,10 @@ export const LiveSimulator: React.FC = () => {
             <button
               onClick={reloadSimulator}
               className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-mono font-medium text-slate-300 bg-[#15111D] border border-white/10 hover:border-white/20 hover:text-white transition-all cursor-pointer active:scale-95"
-              title="Simülatörü Yeniden Başlat"
+              title={t.liveSimulator.restartTitle}
             >
               <RotateCcw className="w-3.5 h-3.5 text-slate-400" />
-              <span>Yeniden Başlat</span>
+              <span>{t.liveSimulator.restartBtn}</span>
             </button>
 
             <a
@@ -97,7 +55,7 @@ export const LiveSimulator: React.FC = () => {
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-mono font-semibold text-[#08060B] bg-gradient-to-r from-[#F5B301] to-[#FF7A1A] hover:brightness-110 shadow-md transition-all active:scale-95"
             >
-              <span>Ayrı Sekmede Aç</span>
+              <span>{t.liveSimulator.openNewTab}</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
           </div>
@@ -107,7 +65,7 @@ export const LiveSimulator: React.FC = () => {
         <div className="sm:hidden mb-4 p-3 rounded-xl bg-[#15111D] border border-[#F5B301]/30 flex items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-xs text-slate-300">
             <Smartphone className="w-4 h-4 text-[#F5B301] shrink-0" />
-            <span className="text-[11px]">Telefonda daha rahat kullanmak için:</span>
+            <span className="text-[11px]">{t.liveSimulator.mobileNotice}</span>
           </div>
           <a
             href="/demo/"
@@ -115,7 +73,7 @@ export const LiveSimulator: React.FC = () => {
             rel="noopener noreferrer"
             className="px-2.5 py-1 rounded-lg bg-[#F5B301] text-[#08060B] text-[11px] font-mono font-bold shrink-0 flex items-center gap-1"
           >
-            <span>Tam Ekran Aç</span>
+            <span>{t.liveSimulator.mobileFullscreen}</span>
             <ExternalLink className="w-3 h-3" />
           </a>
         </div>
@@ -126,16 +84,16 @@ export const LiveSimulator: React.FC = () => {
             <div className="flex items-center gap-2">
               <KeyRound className="w-4 h-4 text-[#F5B301] shrink-0" />
               <span className="text-[11px] sm:text-xs font-mono font-semibold uppercase tracking-wider text-slate-200">
-                Hazır Test Hesapları
+                {t.liveSimulator.credentialsTitle}
               </span>
             </div>
             <span className="text-[10px] text-slate-400 hidden sm:inline font-mono">
-              (Tıklayarak kopyalayabilirsiniz)
+              {t.liveSimulator.credentialsHint}
             </span>
           </div>
 
           <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-2.5">
-            {demoAccounts.map((acc) => (
+            {t.liveSimulator.accounts.map((acc) => (
               <button
                 key={acc.username}
                 onClick={() => handleCopy(acc)}
@@ -145,17 +103,17 @@ export const LiveSimulator: React.FC = () => {
                   <span className="text-[11px] sm:text-xs font-semibold truncate">{acc.role}</span>
                   {copiedRole === acc.username ? (
                     <span className="flex items-center gap-0.5 text-[9px] sm:text-[10px] text-emerald-400 font-mono shrink-0">
-                      <Check className="w-3 h-3" /> Kopyalandı
+                      <Check className="w-3 h-3" /> {t.liveSimulator.copied}
                     </span>
                   ) : (
                     <span className="text-[9px] opacity-75 font-mono shrink-0">{acc.badge}</span>
                   )}
                 </div>
                 <div className="font-mono text-[11px] sm:text-xs text-white/90 truncate">
-                  <span className="opacity-70">kullanıcı:</span> <span className="font-bold text-white">{acc.username}</span>
+                  <span className="opacity-70">{t.liveSimulator.userLabel}</span> <span className="font-bold text-white">{acc.username}</span>
                 </div>
                 <div className="font-mono text-[11px] sm:text-xs text-white/90 truncate">
-                  <span className="opacity-70">şifre:</span> <span className="font-bold text-white">{acc.password}</span>
+                  <span className="opacity-70">{t.liveSimulator.passLabel}</span> <span className="font-bold text-white">{acc.password}</span>
                 </div>
                 <div className="text-[9px] sm:text-[10px] text-slate-400 mt-1 line-clamp-1 opacity-80">
                   {acc.desc}
@@ -179,20 +137,19 @@ export const LiveSimulator: React.FC = () => {
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2 font-mono text-[11px] sm:text-xs text-slate-300">
                 <Terminal className="w-3.5 h-3.5 text-[#F5B301] shrink-0" />
-                <span className="font-semibold text-white truncate max-w-[130px] sm:max-w-none">nov4-node://cluster-01</span>
+                <span className="font-semibold text-white truncate max-w-[130px] sm:max-w-none">{t.liveSimulator.terminalCluster}</span>
                 <span className="text-slate-500 hidden sm:inline">|</span>
                 <span className="text-emerald-400 flex items-center gap-1">
                   <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
-                  <span className="hidden sm:inline">In-Memory Mock Fabrika (21 Makine Aktif)</span>
-                  <span className="sm:hidden text-[10px]">21 Makine</span>
+                  <span className="hidden sm:inline">{t.liveSimulator.terminalMachines}</span>
+                  <span className="sm:hidden text-[10px]">{t.liveSimulator.terminalMachinesMobile}</span>
                 </span>
               </div>
             </div>
 
             <div className="flex items-center gap-2 sm:gap-3">
               <div className="hidden md:flex items-center gap-2 text-[11px] font-mono text-slate-400">
-                <span>Tesisler:</span>
-                <span className="text-slate-200">Alpha • Beta • Gamma</span>
+                <span>{t.liveSimulator.terminalPlants}</span>
               </div>
               <a
                 href="/demo/"
@@ -200,7 +157,7 @@ export const LiveSimulator: React.FC = () => {
                 rel="noopener noreferrer"
                 className="text-[11px] sm:text-xs font-mono text-[#F5B301] hover:underline flex items-center gap-1 shrink-0"
               >
-                <span>Tam Ekran</span>
+                <span>{t.liveSimulator.terminalFullscreen}</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>
@@ -224,11 +181,11 @@ export const LiveSimulator: React.FC = () => {
             <div className="flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-[#F5B301] shrink-0" />
               <span>
-                <strong>Giriş Yaptıktan Sonra:</strong> Sol menüden <em>Dashboard</em>, <em>Ağ Haritası</em>, <em>Alarmlar</em> ve <em>Şablon Editörü</em> sekmelerini dolaşabilirsiniz.
+                <strong>{t.liveSimulator.footerHintPrefix}</strong> {t.liveSimulator.footerHintText}
               </span>
             </div>
             <div className="font-mono text-[9px] sm:text-[11px] text-slate-500">
-              %100 Air-Gapped Simülasyon
+              {t.liveSimulator.footerAirGap}
             </div>
           </div>
 
