@@ -2,7 +2,7 @@
   "framework": "vite",
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/demo/:match*", "destination": "/demo/:match*" },
+    { "source": "/demo/:match*", "destination": "/demo/index.html" },
     { "source": "/((?!demo).*)", "destination": "/index.html" }
   ]
 }

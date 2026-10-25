@@ -3,8 +3,8 @@ export type Language = 'tr' | 'en';
 export const translations = {
   tr: {
     meta: {
-      title: 'Nov4 — Endüstriyel Veri, Haritalama ve Raporlama',
-      description: 'Nov4 — Endüstriyel Veri, Topoloji Haritalama ve Canlı Raporlama Platformu.',
+      title: 'Nov4 — Endüstriyel Veri, Template Builder ve Raporlama',
+      description: 'Nov4 — Esnek mimari, her veritabanı desteği, Template Builder ve yerel AI ile endüstriyel veri platformu.',
     },
     nav: {
       modules: 'Modüller',
@@ -13,20 +13,55 @@ export const translations = {
       contact: 'İletişim',
     },
     hero: {
-      tag: 'ON-PREMISE · AIR-GAPPED',
+      tag: 'ON-PREMISE · AIR-GAPPED · MULTI-DB',
       titleLine1: 'Endüstriyel Veri,',
       titleLine2: 'Haritalama ve Raporlama.',
       ctaDemo: 'Canlı Demoyu Aç',
+      ctaBuilder: 'Template Builder',
       ctaOutputs: 'Rapor Çıktıları',
+      punchlines: [
+        {
+          code: '01',
+          key: 'flex',
+          title: 'Tam Esnek Yapı',
+          line: 'Kurallarınıza göre şekillenen modüler araçlar',
+        },
+        {
+          code: '02',
+          key: 'fit',
+          title: 'Sisteminize Uyumlu',
+          line: 'Mevcut tesis ve ağ yapınıza doğrudan entegre',
+        },
+        {
+          code: '03',
+          key: 'db',
+          title: 'Her DB Desteği',
+          line: 'PostgreSQL, Oracle, MSSQL, TimescaleDB, SQLite',
+        },
+        {
+          code: '04',
+          key: 'ai',
+          title: 'Lokal Yapay Zeka',
+          line: 'Yerelde çalışan AI ile işlerinizi hızla halledin',
+        },
+        {
+          code: '05',
+          key: 'tb',
+          title: 'Template Builder',
+          line: 'Veri bağlı şablon, harita ve tek tık Excel/PDF',
+        },
+      ],
     },
     cards: {
       sectionTitle: 'Platform Modülleri',
       openInDemo: 'Demoda Aç',
-      topologyTag: '01 · TOPOLOJİ',
-      topologyTitle: 'Üretim Haritaları',
-      outputsTag: '02 · ÇIKTILAR',
-      outputsTitle: 'Canlı Excel & PDF Raporlar',
-      telemetryTag: '03 · TELEMETRİ',
+      openBuilder: 'Template Builder',
+      openPreview: 'Canlı Çıktı',
+      topologyTag: '01 · SPACE MAP',
+      topologyTitle: 'Üretim ve Ağ Haritaları',
+      outputsTag: '02 · TEMPLATE BUILDER',
+      outputsTitle: 'Template Builder & Canlı Çıktılar',
+      telemetryTag: '03 · TELEMETRİ & ÇOKLU DB',
       telemetryTitle: 'SQL, Python & Canlı Pano',
       aiTag: '04 · YEREL MODEL',
       aiTitle: 'Yerel AI Copilot',
@@ -37,9 +72,9 @@ export const translations = {
       title: 'Canlı Platform Demosu',
       views: {
         dashboard: 'Genel Pano',
-        maps: 'Haritalar',
+        maps: 'Space Map',
+        builder: 'Template Builder',
         outputs: 'Raporlar & Çıktılar',
-        builder: 'Şablon Editörü',
         sql: 'SQL & Python',
         alarms: 'Alarmlar',
       },
@@ -64,8 +99,8 @@ export const translations = {
   },
   en: {
     meta: {
-      title: 'Nov4 — Industrial Data, Mapping & Reporting',
-      description: 'Nov4 — Industrial Data, Topology Mapping & Live Reporting Platform.',
+      title: 'Nov4 — Industrial Data, Template Builder & Reporting',
+      description: 'Nov4 — Flexible on-premise industrial data platform with multi-DB support, Template Builder, and local AI.',
     },
     nav: {
       modules: 'Modules',
@@ -74,20 +109,55 @@ export const translations = {
       contact: 'Contact',
     },
     hero: {
-      tag: 'ON-PREMISE · AIR-GAPPED',
+      tag: 'ON-PREMISE · AIR-GAPPED · MULTI-DB',
       titleLine1: 'Industrial Data,',
       titleLine2: 'Mapping & Reporting.',
       ctaDemo: 'Open Live Demo',
+      ctaBuilder: 'Template Builder',
       ctaOutputs: 'Report Outputs',
+      punchlines: [
+        {
+          code: '01',
+          key: 'flex',
+          title: 'Flexible by Design',
+          line: 'Modular workflows shaped around your rules',
+        },
+        {
+          code: '02',
+          key: 'fit',
+          title: 'Fits Your System',
+          line: 'Drops directly into your existing plant & IT',
+        },
+        {
+          code: '03',
+          key: 'db',
+          title: 'Every DB Supported',
+          line: 'PostgreSQL, Oracle, MSSQL, TimescaleDB, SQLite',
+        },
+        {
+          code: '04',
+          key: 'ai',
+          title: 'Local On-Premise AI',
+          line: 'Get work done fast with private local AI',
+        },
+        {
+          code: '05',
+          key: 'tb',
+          title: 'Template Builder',
+          line: 'Data-bound sheets, maps & one-click Excel/PDF',
+        },
+      ],
     },
     cards: {
       sectionTitle: 'Platform Modules',
       openInDemo: 'Open in Demo',
-      topologyTag: '01 · TOPOLOGY',
-      topologyTitle: 'Production Maps',
-      outputsTag: '02 · OUTPUTS',
-      outputsTitle: 'Live Excel & PDF Reports',
-      telemetryTag: '03 · TELEMETRY',
+      openBuilder: 'Template Builder',
+      openPreview: 'Live Output',
+      topologyTag: '01 · SPACE MAP',
+      topologyTitle: 'Production & Network Maps',
+      outputsTag: '02 · TEMPLATE BUILDER',
+      outputsTitle: 'Template Builder & Live Outputs',
+      telemetryTag: '03 · TELEMETRY & MULTI-DB',
       telemetryTitle: 'SQL, Python & Dashboards',
       aiTag: '04 · LOCAL ENGINE',
       aiTitle: 'Local AI Copilot',
@@ -98,9 +168,9 @@ export const translations = {
       title: 'Live Platform Demo',
       views: {
         dashboard: 'Dashboard',
-        maps: 'Space Maps',
-        outputs: 'Reports & Outputs',
+        maps: 'Space Map',
         builder: 'Template Builder',
+        outputs: 'Reports & Outputs',
         sql: 'SQL & Python',
         alarms: 'Alarms',
       },
@@ -126,4 +196,3 @@ export const translations = {
 };
 
 export type Translations = typeof translations.tr;
-
