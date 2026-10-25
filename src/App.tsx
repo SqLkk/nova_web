@@ -1,80 +1,48 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { Language } from './data/translations';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { ProgressivePunchyFlow } from './components/ProgressivePunchyFlow';
+import { ShowcaseGrid } from './components/ShowcaseGrid';
 import { LiveSimulator } from './components/LiveSimulator';
 import { Footer } from './components/Footer';
-import { TechDetailsModal } from './components/TechDetailsModal';
 import { ContactModal } from './components/ContactModal';
-import { LanguageProvider } from './context/LanguageContext';
 
-export const AppContent: React.FC = () => {
-  const [isTechDetailsOpen, setIsTechDetailsOpen] = useState(false);
+export function App() {
+  const [lang, setLang] = useState<Language>('tr');
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [demoTarget, setDemoTarget] = useState<{ route: string; seq: number } | null>(null);
 
-  const scrollToDemo = () => {
-    const el = document.getElementById('demo-section');
+  const handleJumpToDemo = (route: string) => {
+    setDemoTarget((prev) => ({ route, seq: (prev?.seq || 0) + 1 }));
+    const el = document.getElementById('demo');
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const scrollDownFromHero = () => {
-    const el = document.getElementById('step-1');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
   return (
-    <div className="min-h-screen bg-[#08060B] text-[#F4F1EA] selection:bg-[#F5B301]/30 selection:text-[#FCD34D]">
-      {/* Fixed Minimalist Navbar */}
+    <div className="min-h-screen bg-[#090A0D] text-[#F3F4F6] flex flex-col">
       <Navbar
-        onOpenTechDetails={() => setIsTechDetailsOpen(true)}
-        onNavigateToDemo={scrollToDemo}
+        lang={lang}
+        setLang={setLang}
         onOpenContact={() => setIsContactOpen(true)}
       />
 
-      {/* Main Experience */}
-      <main>
-        {/* 1. Hero: Giant Glowing Nov4 Title + Real Purpose + Faint Ghost Tool'u Dene Card */}
-        <Hero 
-          onNavigateToDemo={scrollToDemo} 
-          onScrollDown={scrollDownFromHero} 
-        />
-
-        {/* 2. 4-Step Progressive Punchy Flow: 
-               Each scroll reveals 1 real Nov4 feature. 
-               On step 4 the Tool'u Dene card blazes in full golden glory! */}
-        <ProgressivePunchyFlow onNavigateToDemo={scrollToDemo} />
-
-        {/* 3. Embedded Live Simulator (Ready with in-memory factory & demo logins) */}
-        <LiveSimulator />
+      <main className="flex-1">
+        <Hero lang={lang} onJumpToDemo={handleJumpToDemo} />
+        <ShowcaseGrid lang={lang} onJumpToDemo={handleJumpToDemo} />
+        <LiveSimulator lang={lang} externalRoute={demoTarget} />
       </main>
 
-      {/* Clean Minimalist Footer */}
-      <Footer onOpenContact={() => setIsContactOpen(true)} />
-
-      {/* Top-Right Modals */}
-      <TechDetailsModal
-        isOpen={isTechDetailsOpen}
-        onClose={() => setIsTechDetailsOpen(false)}
-      />
+      <Footer lang={lang} onOpenContact={() => setIsContactOpen(true)} />
 
       <ContactModal
         isOpen={isContactOpen}
         onClose={() => setIsContactOpen(false)}
+        lang={lang}
       />
     </div>
   );
-};
-
-export const App: React.FC = () => {
-  return (
-    <LanguageProvider>
-      <AppContent />
-    </LanguageProvider>
-  );
-};
+}
 
 export default App;

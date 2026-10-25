@@ -23,7 +23,7 @@ npm run preview  # Previews production build locally
 ## 🏭 What Was Built
 
 ### 1. Visual Style & Aesthetic
-- **Palantir Foundry meets Siemens MindSphere**: Deep charcoal/slate dark-mode palette (`#080C14`, `#0B0F17`, `#0F172A`), industrial neon cyan accents (`#00E5FF`), emerald green uptime indicators (`#10B981`), and amber alert highlights (`#F59E0B`).
+- **Modern Enterprise Industrial Intelligence**: Deep charcoal/slate dark-mode palette (`#080C14`, `#0B0F17`, `#0F172A`), industrial neon cyan accents (`#00E5FF`), emerald green uptime indicators (`#10B981`), and amber alert highlights (`#F59E0B`).
 - **Technical Typography**: Clean sans-serif paired with `JetBrains Mono` for PLC tags, timestamps, OEE indices, and sensor telemetry.
 
 ### 2. Header / Navigation
@@ -44,9 +44,9 @@ npm run preview  # Previews production build locally
 ### 4. Interactive "Try NOV4" Live Sandbox (`#try-nov4`) 🎮
 Customer experience sandbox populated with realistic industrial dummy data based on the **Apex Enterprise Smart Factory Specification**:
 - **Line Switcher**:
-  - *Munich Gigafactory 01* — Schuler 2,500T Servo Stamping Press (Siemens S7-1500, OPC-UA)
+  - *Munich Gigafactory 01* — Schuler 2,500T Servo Stamping Press (Apex AX-1500, OPC-UA)
   - *Munich Gigafactory 01* — KUKA Titan KR-1000 Laser Welding Cell (Modbus TCP)
-  - *Stuttgart Powertrain Works* — DMG MORI 5-Axis CNC Cell (Sinumerik ONE)
+  - *Stuttgart Powertrain Works* — DMG MORI 5-Axis CNC Cell (MotionPro ONE)
 - **Live Telemetry Streams**: Hydraulic pressure (bar), spindle/motor load (%), vibration RMS (mm/s), bearing temperature (°C), active power (kW), and shift units produced.
 - **Interactive Simulation Controls**:
   - `Simulate Pressure Anomaly`: Drops hydraulic pressure to 162.5 bar, triggers telemetry alarm, recalibrates OEE down, and auto-logs root cause ticket.
@@ -68,7 +68,7 @@ Deep-dive cards into NOV4's three core products:
 
 ### 7. Security & Industrial Architecture (For OT / IT Directors)
 - Deployment options: Bare-Metal Linux/Windows, VMware ESXi OVA, or local Docker.
-- Native brownfield connectors: Siemens S7, OPC-UA (IEC 62541), Modbus TCP, Rockwell CIP, Wonderware, Oracle, MS SQL.
+- Native brownfield connectors: Industrial PLC TCP, OPC-UA (IEC 62541), Modbus TCP, EtherNet/IP, PostgreSQL, Oracle, MS SQL.
 - Air-gap verified: Zero outbound telemetry, local RBAC, SHA-256 tamper-evident audit ledger.
 
 ### 8. Interactive ROI Calculator
